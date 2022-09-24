@@ -15,30 +15,49 @@ void printDisks(int n)
 
 void alternatingDiskSort(int n)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n/2 ; i++)
     {
         //Left to Right
         for (int j = i; j < n-1; j++) // goes to n-1 because don't want to swap with empty
+        {
+            
+            while(i > 0 && (unsortedArray[j] == unsortedArray[0])) //if the current elem is the same as the initial, skip it as long as this isn't the first run
             {
-                if(i > 0 && unsortedArray[j] == unsortedArray[0]) //if the current elem is the same as the initial, skip it as long as this isn't the first run
-                    j++;
-                if (unsortedArray[j] != unsortedArray[j + 1])
-                {
-                    swap(unsortedArray[j], unsortedArray[j + 1]);
-                    stepNum++;
-                }
+
+                j++;
             }
+            if (unsortedArray[j] != unsortedArray[j + 1] )
+            {
+                swap(unsortedArray[j], unsortedArray[j + 1]);
+                stepNum++;
+            }
+        }
+            
             //Right to Left
-            for (int j = n-i-2; j > i+1; j--) //starts at n-i-2 because far right is already right and stops before gets to 1st place
-            {
-                if(unsortedArray[j] == unsortedArray[n-1])
-                    j--;
-                if (unsortedArray[j] != unsortedArray[j - 1] )
+        for (int j = n-i-2; j > i+1; j--) //starts at n-i-2 because far right is already right and stops before gets to 1st place
+        {
+            while(unsortedArray[j] == unsortedArray[n-1])
                 {
-                    swap(unsortedArray[j], unsortedArray[j - 1]);
-                    stepNum++;
+                    j--;
                 }
+            if (unsortedArray[j] != unsortedArray[j - 1] )
+            {
+                swap(unsortedArray[j], unsortedArray[j - 1]);
+                stepNum++;
+                
             }
+        }
+        
+        for(int k = 0; k= (n/2); k++)
+        {
+            if(unsortedArray[k] != unsortedArray[k+1])
+            {
+                break;
+            }
+            else
+                return;
+        }
+        
         runNum++;
     }
 }
