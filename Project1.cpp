@@ -47,16 +47,7 @@ void alternatingDiskSort(int n)
                 
             }
         }
-        
-        for(int k = 0; k= (n/2); k++)
-        {
-            if(unsortedArray[k] != unsortedArray[k+1])
-            {
-                break;
-            }
-            else
-                return;
-        }
+
         
         runNum++;
     }
