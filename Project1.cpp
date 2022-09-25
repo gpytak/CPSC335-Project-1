@@ -20,10 +20,8 @@ void alternatingDiskSort(int n)
         //Left to Right
         for (int j = i; j < n-1; j++) // goes to n-1 because don't want to swap with empty
         {
-            
             while(i > 0 && (unsortedArray[j] == unsortedArray[0])) //if the current elem is the same as the initial, skip it as long as this isn't the first run
             {
-
                 j++;
             }
             if (unsortedArray[j] != unsortedArray[j + 1] )
@@ -32,23 +30,19 @@ void alternatingDiskSort(int n)
                 stepNum++;
             }
         }
-            
-            //Right to Left
+        //Right to Left
         for (int j = n-i-2; j > i+1; j--) //starts at n-i-2 because far right is already right and stops before gets to 1st place
         {
             while(unsortedArray[j] == unsortedArray[n-1])
-                {
-                    j--;
-                }
+            {
+                j--;
+            }
             if (unsortedArray[j] != unsortedArray[j - 1] )
             {
                 swap(unsortedArray[j], unsortedArray[j - 1]);
                 stepNum++;
-                
             }
         }
-
-        
         runNum++;
     }
 }
